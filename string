@@ -1,0 +1,7 @@
+name= "manish vijay ajay"
+name2 = "ajay"
+print(name.split())
+print("_".join(name))
+print(name2.startswith("a"))
+print()
+    

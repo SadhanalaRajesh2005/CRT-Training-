@@ -1,0 +1,50 @@
+def calculate_bill(units, consumer_type, peak_percent, senior, previous_outstanding):
+    # Step 1: Calculate Base Bill
+    if consumer_type.lower() == "domestic":
+        if units <= 100:
+            rate = 3
+        elif units <= 300:
+            rate = 5
+        else:
+            rate = 8
+    elif consumer_type.lower() == "commercial":
+        if units <= 200:
+            rate = 6
+        elif units <= 500:
+            rate = 9
+        else:
+            rate = 12
+    else:
+        return "Invalid consumer type"
+
+    base_bill = units * rate
+
+    # Step 2: Additional charges / discounts
+    additional = 0
+
+    # Peak hour surcharge
+    if peak_percent > 50:
+        additional += base_bill * 0.10
+
+    # Senior citizen discount
+    if senior.lower() == "yes":
+        additional -= base_bill * 0.05
+
+    # Step 3: Final amount
+    final_amount = base_bill + additional + previous_outstanding
+
+    # Step 4: Billing status
+    if final_amount > 5000:
+        status = "High Bill Alert"
+    else:
+        status = "Normal"
+
+    return base_bill, additional, final_amount, status
+
+
+# Example
+result = calculate_bill(350, "domestic", 60, "yes", 1000)
+print("Base Bill:", result[0])
+print("Additional Charges:", result[1])
+print("Final Amount:", result[2])
+print("Status:", result[3])

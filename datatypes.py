@@ -1,0 +1,10 @@
+'''
+int
+boolean
+float
+complex
+'''
+'''
+a=5
+print(float(a))
+'''
