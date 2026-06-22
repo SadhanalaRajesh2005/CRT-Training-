@@ -1,0 +1,8 @@
+Name: Sadhanala Rajesh
+Branch: Chalapathi Institute Of Technology
+Branch: CSE-AI
+skills:
+Python
+Git
+SQL
+
